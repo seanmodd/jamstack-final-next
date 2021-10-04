@@ -1,0 +1,11 @@
+Model Information:
+* title:	Jeep Gladiator
+* source:	https://sketchfab.com/3d-models/jeep-gladiator-0b0b2bbc09f44ba9931ec9d593882f06
+* author:	DJS (https://sketchfab.com/s.jailen.jones)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Jeep Gladiator" (https://sketchfab.com/3d-models/jeep-gladiator-0b0b2bbc09f44ba9931ec9d593882f06) by DJS (https://sketchfab.com/s.jailen.jones) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

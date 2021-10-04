@@ -1,0 +1,25 @@
+
+{
+  "extends": [
+    "wesbos"
+  ]
+}
+
+// //! THE ORIGINAL
+// //npm install --save-dev eslint-config-prettier
+// {
+//   "extends": [
+//     "prettier"
+//   ],
+//   "plugins": [
+//     "prettier"
+//   ],
+//   "rules": {
+//     // "prettier/prettier": "error",
+//     "react/jsx-key": "off",
+//     "prettier/prettier": "off",
+//     "react/no-unescaped-entities": "off",
+//     "import/no-anonymous-default-export": "off",
+//     "@next/next/link-passhref": "off"
+//   }
+// }

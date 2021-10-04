@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "echodyne.buddy",
+    "virtuslab.graph-buddy",
+    "juanallo.vscode-dependency-cruiser",
+    "jack-thomson.dependency-cleaner",
+    "rcore.rcore-unused-css-classes"
+  ]
+}

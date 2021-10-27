@@ -24,11 +24,11 @@ function VariantID({ variant }) {
         <h1>id ending: {id}</h1>
         <h1>{variant.id}</h1>
         <h1>{variant.price}</h1>
-        <h1>{variant.product.category.name}</h1>
-        <h1>{variant.product.name}</h1>
-        <h1>{variant.promo}</h1>
-        <h1>{variant.size}</h1>
-        <h1>{variant.qty}</h1>
+        {/* <h1>{variant.product.category.name}</h1> */}
+        {/* <h1>{variant.product.name}</h1> */}
+        {/* <h1>{variant.promo}</h1> */}
+        {/* <h1>{variant.size}</h1> */}
+        {/* <h1>{variant.qty}</h1> */}
       </VStack>
     </>
   );
@@ -56,7 +56,7 @@ export async function getStaticProps({ params }) {
         variants(where: { id: $id }) {
           id
           qty
-          color
+          # color
           size
           style
           price

@@ -8,6 +8,8 @@ import {
   Box,
   Input,
   Stack,
+  Grid,
+  GridItem,
   IconButton,
   Flex,
   useToast,
@@ -20,6 +22,7 @@ import client from '../../graphql/apolloClient';
 import Fun from '../../components/Animations/Fun';
 import { GET_ALL_VARIANTS } from '../../graphql/queries';
 import Anime from '../../components/Animations/Anime';
+import MyItem from '../../components/MyItem';
 
 // function IndexPage({ AllVariants }) {
 // function IndexPage({ AllVariants, results }) {
@@ -32,13 +35,17 @@ function IndexPage(results) {
 
   //! from rick and morty
   const intialState = results;
+  console.log(
+    '🚀 ~ file: index.js ~ line 38 ~ IndexPage ~ intialState',
+    intialState
+  );
   const [search, setSearch] = useState('');
-  const [characters, setCharacters] = useState(intialState.characters);
+  console.log('🚀 ~ file: index.js ~ line 43 ~ IndexPage ~ search', search);
+  const [items, setItems] = useState(intialState.items);
+  console.log('🚀 ~ file: index.js ~ line 44 ~ IndexPage ~ items', items);
   const toast = useToast();
   //! above from rick and morty
-  console.log('GET_ALL_VARIANTS (from index-variants.js) : ', results);
-  console.log('from Characters (from index-variants.js) : ', characters);
-  console.log('this is search (from the index-variants.js) : ', search);
+
   return (
     <>
       <VStack>
@@ -51,7 +58,7 @@ function IndexPage(results) {
               method: 'post',
               body: search,
             });
-            const { characters, error } = await results.json();
+            const { items, error } = await results.json();
             if (error) {
               toast({
                 position: 'bottom',
@@ -62,7 +69,7 @@ function IndexPage(results) {
                 isClosable: true,
               });
             } else {
-              setCharacters(characters);
+              setItems(items);
             }
           }}
         >
@@ -90,32 +97,49 @@ function IndexPage(results) {
               disabled={search === ''}
               onClick={async () => {
                 setSearch('');
-                setCharacters(intialState.characters);
+                setItems(intialState.items);
               }}
             />
           </Stack>
         </form>
         //! above is from rick and morty
-        {/* <Variant characters={characters} /> */}
-        {characters.map((character) => (
-          <VStack
-            borderWidth="5px"
-            borderRadius="5px"
-            p="15px"
-            key={character.id}
-          >
-            <Button zIndex="1">
-              <Link href={`/variants/${character.id}`}>
-                <a>VIEW MORE!</a>
-              </Link>
-            </Button>
-            <Text color={color[colorMode]}>Variant ID: {character.id}</Text>
-            <Heading>Product: {character.product.name}</Heading>
-            <Heading color={color[colorMode]}>
-              Product Category: {character.product.category.name}
-            </Heading>
-          </VStack>
-        ))}
+        {/* <Variant items={items} /> */}
+        <Grid
+          templateColumns={[
+            'repeat(2, 1fr)',
+            'repeat(8, 1fr)',
+            'repeat(8, 1fr)',
+            'repeat(8, 1fr)',
+          ]}
+          justifyContent="center"
+          alignItems="center"
+          // bg="red"
+          px="100px"
+          gap={4}
+        >
+          {items.map((item) => {
+            console.log(
+              '🚀 ~ file: index.js ~ line 138 ~ IndexPage ~ items',
+              items
+            );
+            return (
+              <GridItem
+                alignItems="center"
+                justifyContent="center"
+                // colSpan={[5, 4, 4, 2]}
+                colSpan={[5, 4, 4, 4, 2]}
+              >
+                <MyItem
+                  alignItems="center"
+                  justifyContent="center"
+                  itemId={item.id}
+                  itemProductName={item.product.name}
+                  itemProductCategoryName={item.product.category.name}
+                />
+              </GridItem>
+            );
+          })}
+        </Grid>
         <Anime />
       </VStack>
     </>
@@ -131,7 +155,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      characters: data.variants,
+      items: data.variants,
     },
   };
 }

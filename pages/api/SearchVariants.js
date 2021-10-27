@@ -15,9 +15,10 @@ export default async (req, res) => {
           # characters(filter: { name: "${search}" }) {
           # variants(filter: { name: "${search}" }) {
             variants(where: {product: {name_contains: "${search}"}}) {
+              # variants{
             id
             qty
-            color
+            # color
             size
             style
             price
@@ -44,8 +45,8 @@ export default async (req, res) => {
           }
         }
       `,
-      //  console.log("data.variants : ", data.variants);
     });
+    console.log('data.variants : ', data.variants);
     res.status(200).json({ characters: data.variants, error: null });
   } catch (error) {
     console.log('error: ', error);

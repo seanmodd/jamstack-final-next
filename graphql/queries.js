@@ -13,10 +13,10 @@ const GET_ALL_PRODUCTS = gql`
   query Products {
     products {
       name
-      description
+      # description
       id
-      featured
-      description
+      # featured
+      # description
       variants {
         id
         price
@@ -38,22 +38,22 @@ const GET_ALL_VARIANTS = gql`
     variants {
       id
       qty
-      color
-      size
-      style
+      # color
+      # size
+      # style
       price
       product {
         id
         name
         category {
           id
-          name
-          description
+          # name
+          # description
         }
         id
-        promo
-        featured
-        description
+        # promo
+        # featured
+        # description
       }
       images {
         id
